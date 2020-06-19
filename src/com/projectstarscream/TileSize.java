@@ -1,29 +1,42 @@
 package com.projectstarscream;
 
-public class TileSize extends Dimensions {
-    private int width;
-    private int length;
+
+public class TileSize extends RoomDimensions  {
+    private int tileWidth;
+    private int tileLength;
+    private double priceOfTile;
     private int oneSqFtInInches = 144;
 
 
-    public TileSize(int width, int length) {
-        //TODO research inheritance
-        super(60,10);
-        this.width = width;
-        this.length = length;
+    int getTileSqInches() {
+
+        return (tileLength * tileWidth);
     }
 
-    int getTileSize() {
-        return (length * width);
-    }
-
-    int amountOfTilesNeeded() {
-        int totalSqInch = getTileSize();
+    int amountOfTilesNeeded(int tiles) {
+        int totalSqInch = getTileSqInches();
         int tileSqFt = totalSqInch / oneSqFtInInches;
-        int roomSquareFeet = getSquareFeet();
-        return roomSquareFeet / tileSqFt;
+        return tiles / tileSqFt;
     }
 
-    //TODO make material cost method
+    double totalCostOfTiles(int totalTiles) {
 
+        return totalTiles * priceOfTile;
+    }
+
+    public void setTileWidth(int tileWidth) {
+
+        this.tileWidth = tileWidth;
+    }
+
+    public void setTileLength(int tileLength) {
+
+        this.tileLength = tileLength;
+    }
+
+
+    public void setPriceOfTile(double priceOfTile) {
+
+        this.priceOfTile = priceOfTile;
+    }
 }
