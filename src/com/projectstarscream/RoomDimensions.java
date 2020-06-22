@@ -3,9 +3,6 @@ package com.projectstarscream;
 public class RoomDimensions  {
    private int width;
    private int length;
-   public String roomType;
-
-
 
     public int roomSqFeet() {
         double wasteMaterial = .15;
